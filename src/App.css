@@ -6,3 +6,8 @@ body {
         font-weight: auto;
         font-style: normal; */
 }
+
+nav{
+    /* Sets the stacking order of an element to be above other elements, with the !important rule giving it the highest priority. */
+    z-index: 10001 !important; 
+}
