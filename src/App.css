@@ -11,3 +11,12 @@ nav{
     /* Sets the stacking order of an element to be above other elements, with the !important rule giving it the highest priority. */
     z-index: 10001 !important; 
 }
+
+/* Using Custom Classes in Tailwind */
+.gradientBg {
+    background: linear-gradient(169.65deg, #67457C -0.36%, #59A3F9 27.8%, #59A3F9 27.8%);
+}
+
+.btnPrimary{
+    @apply py-3 px-8 bg-[#9452bd] text-white rounded-lg hover:bg-[#6c408c] transition-all duration-300;
+}
