@@ -1,7 +1,7 @@
 // import f1 from '../assets/f1.png'
-import f2 from '../assets/f2.png'
-import f3 from '../assets/f3.png'
-import f4 from '../assets/f4.png'
+import f2 from '../assets/featured/f2.png'
+import f3 from '../assets/featured/f3.png'
+import f4 from '../assets/featured/f4.png'
 
 const Features = () => {
     return (
@@ -10,7 +10,7 @@ const Features = () => {
                 {/* Left side text */}
                 <div className='lg:mt-12 cursor-pointer lg:w-1/4'>
                     <h3 className='text-3xl text-primary font-bold lg:w-1/2 mb-3'>Why are we better than others</h3>
-                    <p className='text-base text-tartiary'>Te Ofrecemos la mejor logistica para planear de forma mas eficiente el modo en que serán transportados y almacenados los bienes
+                    <p className='text-base text-tartiary'>Te Ofrecemos la mejor logistica para planear de forma mas eficiente el modo en que serán transportados y almacenados los bienes
                         que necesita trasladar en el mejor plazo posible y con seguridad que nosotros brindamos</p>
                 </div>
 
