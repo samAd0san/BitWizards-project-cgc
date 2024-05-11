@@ -41,7 +41,7 @@ function NavBar() {
                     </div>
 
                     {/* Right Side of the Nav bar */}
-                    <div className='md:flex space-x-12 items-center hidden'>
+                    <div className='md:flex sm:ml-12 space-x-12 items-center hidden'>
                         {/* Products (React Icon) + Sign up button */}
                         <a className='md:flex items-center hidden' href="/">
                             <SlHandbag className='mr-2' /> <span className='hover:text-cyan-400 mt-1'>Products</span>

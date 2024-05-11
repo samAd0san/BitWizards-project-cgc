@@ -20,7 +20,7 @@ const Banner = ({ banner, heading, subheading, btn1, btn2 }) => {
                     {/* Buttons */}
                     <div className="space-x-5 space-y-4">
                         <button className='btnPrimary font-medium'>{btn1}</button>
-                        <button className='btnPrimary font-medium'>{btn2}</button>
+                        <button className='btnSecondary font-medium'>{btn2}</button>
                     </div>
                 </div>
 

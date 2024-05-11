@@ -2,14 +2,14 @@
 
 body {
     font-family: "Jost", sans-serif;
-        /* font-optical-sizing: auto;
+    /* font-optical-sizing: auto;
         font-weight: auto;
         font-style: normal; */
 }
 
-nav{
+nav {
     /* Sets the stacking order of an element to be above other elements, with the !important rule giving it the highest priority. */
-    z-index: 10001 !important; 
+    z-index: 10001 !important;
 }
 
 /* Using Custom Classes in Tailwind */
@@ -17,6 +17,11 @@ nav{
     background: linear-gradient(169.65deg, #67457C -0.36%, #59A3F9 27.8%, #59A3F9 27.8%);
 }
 
-.btnPrimary{
+.btnPrimary {
     @apply py-3 px-8 bg-[#9452bd] text-white rounded-lg hover:bg-[#6c408c] transition-all duration-300;
 }
+
+.btnSecondary {
+    @apply py-3 px-8 bg-[#6d54db] text-white rounded-lg hover:bg-[#463988] transition-all duration-300;
+}
+

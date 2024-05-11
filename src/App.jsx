@@ -1,4 +1,5 @@
 import './App.css'
+import Features from './compnents/Features';
 import Home from './compnents/Home';
 import NavBar from './compnents/NavBar';
 
@@ -8,6 +9,7 @@ function App() {
     <>
       <NavBar />
       <Home />
+      <Features />
     </>
   )
 }
