@@ -3,6 +3,8 @@ import About from './compnents/About';
 import Features from './compnents/Features';
 import Home from './compnents/Home';
 import NavBar from './compnents/NavBar';
+import NewsLetter from './compnents/NewsLetter';
+import Footer from './shared/Footer';
 
 function App() {
 
@@ -12,6 +14,8 @@ function App() {
       <Home />
       <Features />
       <About />
+      <NewsLetter />
+      <Footer />
     </>
   )
 }
