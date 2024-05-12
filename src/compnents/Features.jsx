@@ -5,7 +5,7 @@ import f4 from '../assets/featured/f4.png'
 
 const Features = () => {
     return (
-        <div className='md:px-14 my-24 px-4 max-w-screen mx-auto'>
+        <div className='md:px-14 my-24 px-4 max-w-screen mx-auto' id='feature'>
             <div className='flex flex-col lg:flex-row justify-between items-start gap-10'>
                 {/* Left side text */}
                 <div className='lg:mt-12 cursor-pointer lg:w-1/4'>

@@ -3,7 +3,7 @@ import aboutII from '../assets/about/aboutII.png';
 
 function About() {
     return ( 
-        <div className='md:px-14 p-4 max-w-s mx-auto space-y-10'>
+        <div className='md:px-14 p-4 max-w-s mx-auto space-y-10' id='about'>
             {/* 1st About Page */}
             <div className='flex flex-col md:flex-row justify-between items-center gap-8'>
                 {/* Image */}

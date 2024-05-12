@@ -16,3 +16,6 @@
 # Banner
 - First writtern the code in Home.jsx 
 - Shifted the code to Banner.jsx and added arguments
+
+# Scrolling Effect
+```npm i react-scroll```

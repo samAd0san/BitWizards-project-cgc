@@ -3,6 +3,7 @@ import logo from '../assets/logo.png'
 // React Icons
 import { SlHandbag } from "react-icons/sl";
 import { FaBars, FaXmark } from "react-icons/fa6";
+import { Link } from 'react-scroll';
 
 function NavBar() {
 
@@ -14,8 +15,8 @@ function NavBar() {
 
     const NavItems = [
         { link: 'Overview', path: 'home' },
+        { link: 'Feature', path: 'feature' },
         { link: 'About', path: 'about' },
-        { link: 'Contact', path: 'contact' },
         { link: 'Activities', path: 'activities' }
     ];
 
@@ -35,7 +36,7 @@ function NavBar() {
                         <ul className='md:flex space-x-12 items-center mt-1 hidden'>
                             {
                                 // Displaying all the nav items by iterating using map function
-                                NavItems.map(({ link, path }) => <a className='block hover:text-gray-300' key={link} href={path} >{link}</a>)
+                                NavItems.map(({ link, path }) => <Link activeClass='active' spy={true} smooth={true} offset={-90} className='block hover:text-gray-300' key={link} to={path} >{link}</Link>)
                             }
                         </ul>
                     </div>
@@ -65,9 +66,10 @@ function NavBar() {
             {/* Nav Items for Mobile */}
             <div className={`md:hidden space-y-4 px-4 pt-24 pb-5 bg-secondary text-xl ${isMenuOpen ? 'block fixed top-0 right-0 left-0' : 'hidden'} `}>
                 {
-                    NavItems.map(({ link, path }) => <a key={link} href={path} className='block hover:text-white text-primary font-medium'>
+                    NavItems.map(({ link, path }) => <Link spy={true} smooth={true} offset={-90} key={link} to={path}
+                     className='block hover:text-gray-300 text-white font-medium' onClick={toggleMenu}>
                         {link}
-                    </a>)
+                    </Link>)
                 }
             </div>
         </>
