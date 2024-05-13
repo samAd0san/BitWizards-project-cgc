@@ -7,7 +7,7 @@ function About() {
             {/* 1st About Page */}
             <div className='flex flex-col md:flex-row justify-between items-center gap-8'>
                 {/* Image */}
-                <div className='md:w-1/2'>
+                <div className='md:w-1/2 pt-4'>
                     <img src={aboutI} alt="About Image"/>
                 </div>
 

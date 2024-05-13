@@ -3,7 +3,7 @@ import logo from '../assets/logo.png'
 // React Icons
 import { SlHandbag } from "react-icons/sl";
 import { FaBars, FaXmark } from "react-icons/fa6";
-import { Link } from 'react-scroll';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
 
@@ -13,17 +13,10 @@ function NavBar() {
         setIsMenuOpen(!isMenuOpen)
     }
 
-    const NavItems = [
-        { link: 'Overview', path: 'home' },
-        { link: 'Feature', path: 'feature' },
-        { link: 'About', path: 'about' },
-        { link: 'Activities', path: 'activities' }
-    ];
-
     return (
         <>
             {/* Nav Bar Primary */}
-            <nav className='bg-white md:px-14 p-4 max-w-screen-2xl mx-auto font-semibold text-primary fixed top-0 right-0 left-0'>
+            <nav className='bg-white md:px-14 p-4 max-w-screen-2xl mx-auto font-semibold border-b text-primary fixed top-0 right-0 left-0'>
                 <div className='text-lg container mx-auto flex justify-between items-center font-medium'>
                     {/* Left Side of the Nav bar */}
                     <div className='flex items-center space-x-14 '>
@@ -34,22 +27,29 @@ function NavBar() {
 
                         {/* Nav Items */}
                         <ul className='md:flex space-x-12 items-center mt-1 hidden'>
-                            {
+                            {/* {
                                 // Displaying all the nav items by iterating using map function
                                 NavItems.map(({ link, path }) => <Link activeClass='active' spy={true} smooth={true} offset={-90} className='block hover:text-gray-300' key={link} to={path} >{link}</Link>)
-                            }
+                            } */}
+
+                            <li className='block hover:text-gray-300'><Link to='/'>Home</Link></li>
+                            <li className='block hover:text-gray-300'><Link to='/features'>Features</Link></li>
+                            <li className='block hover:text-gray-300'><Link to='/about'>About</Link></li>
+                            <li className='block hover:text-gray-300'><Link to='/activities'>Activities</Link></li>
                         </ul>
                     </div>
 
                     {/* Right Side of the Nav bar */}
                     <div className='md:flex sm:ml-12 space-x-12 items-center hidden'>
-                        {/* Products (React Icon) + Sign up button */}
-                        <a className='md:flex items-center hidden' href="/">
+                        {/* Products (React Icon)*/}
+                        <Link className='md:flex items-center hidden' to="/products">
                             <SlHandbag className='mr-2' /> <span className='hover:text-cyan-400 mt-1'>Products</span>
-                        </a>
-                        <button className='bg-secondary py-2 px-3 rounded-lg hover:text-white hover:bg-cyan-400 transition-all duration-300'>
+                        </Link>
+
+                        {/* Sign up button  */}
+                        <Link to="/signup" className='bg-secondary py-2 px-3 rounded-lg hover:text-white hover:bg-cyan-400 transition-all duration-300'>
                             Sign up
-                        </button>
+                        </Link>
                     </div>
 
                     {/* Menu button on mobile device (Nav bar)*/}
@@ -65,12 +65,12 @@ function NavBar() {
 
             {/* Nav Items for Mobile */}
             <div className={`md:hidden space-y-4 px-4 pt-24 pb-5 bg-secondary text-xl ${isMenuOpen ? 'block fixed top-0 right-0 left-0' : 'hidden'} `}>
-                {
-                    NavItems.map(({ link, path }) => <Link spy={true} smooth={true} offset={-90} key={link} to={path}
-                     className='block hover:text-gray-300 text-white font-medium' onClick={toggleMenu}>
-                        {link}
-                    </Link>)
-                }
+                <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/'>Home</Link></li>
+                <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/features'>Features</Link></li>
+                <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/about'>About</Link></li>
+                <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/activities'>Activities</Link></li>
+                <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/products'>Products</Link></li>
+                <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/signup'>Signup</Link></li>
             </div>
         </>
     );
