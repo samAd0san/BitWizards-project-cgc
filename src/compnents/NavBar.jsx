@@ -47,8 +47,8 @@ function NavBar() {
                         </Link>
 
                         {/* Sign up button  */}
-                        <Link to="/signup" className='bg-secondary py-2 px-3 rounded-lg hover:text-white hover:bg-cyan-400 transition-all duration-300'>
-                            Sign up
+                        <Link to="/signup" className='bg-secondary py-2 px-3 rounded-lg text-white hover:bg-cyan-400 transition-all duration-300'>
+                            Sign in
                         </Link>
                     </div>
 
@@ -64,13 +64,13 @@ function NavBar() {
             </nav>
 
             {/* Nav Items for Mobile */}
-            <div className={`md:hidden space-y-4 px-4 pt-24 pb-5 bg-secondary text-xl ${isMenuOpen ? 'block fixed top-0 right-0 left-0' : 'hidden'} `}>
+            <div className={`md:hidden space-y-4 px-4 pt-24 pb-5 bg-secondary text-2xl ${isMenuOpen ? 'block fixed top-0 right-0 left-0' : 'hidden'} `}>
                 <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/'>Home</Link></li>
                 <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/features'>Features</Link></li>
                 <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/about'>About</Link></li>
                 <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/activities'>Activities</Link></li>
                 <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/products'>Products</Link></li>
-                <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/signup'>Signup</Link></li>
+                <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/signup'>Signin</Link></li>
             </div>
         </>
     );
