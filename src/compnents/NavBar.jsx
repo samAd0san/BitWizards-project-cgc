@@ -29,7 +29,7 @@ function NavBar() {
                     <div className='flex items-center space-x-14 '>
                         {/* Logo + Icon */}
                         <a href="/" className='flex text-3xl items-center font-semibold space-x-3 text-primary'>
-                            <img className='w-11 h-11 inline-block items-center' src={logo} alt="Logo" /> <span>Logo</span>
+                            <img className='w-11 h-11 inline-block items-center' src={logo} alt="Logo" /> <span>Swirl</span>
                         </a>
 
                         {/* Nav Items */}

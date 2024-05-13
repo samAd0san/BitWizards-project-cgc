@@ -13,7 +13,7 @@ const Footer = () => {
                 <div className="md:w-1/2 space-y-2">
                     {/* Logo */}
                     <a href="/" className='flex text-3xl items-center font-semibold space-x-3'>
-                        <img className='w-11 h-11 inline-block items-center' src={logo} alt="Logo" /> <span>Logo</span>
+                        <img className='w-11 h-11 inline-block items-center' src={logo} alt="Logo" /> <span>Swirl</span>
                     </a>
 
                     {/* Text Content below logo */}
@@ -58,7 +58,7 @@ const Footer = () => {
                         <ul className="space-y-3">
                             <p className="block hover:text-gray-300">+123-456-7890</p>
                             <p className="block hover:text-gray-300">123 xyz xyz</p>
-                            <p className="block hover:text-gray-300">info@example.com</p>
+                            <p className="block hover:text-gray-300">Swirl@gmail.com</p>
                             <p className="block hover:text-gray-300">Silicon Valley, Hi-tech city</p>
                         </ul>
                     </div>
@@ -69,7 +69,7 @@ const Footer = () => {
 
                 {/* Footer Bottom */}
             <div className="flex flex-col sm:flex-row gap-8 sm:items-center justify-between my-8">
-                <p>Copyright © [Year] [Your Institution/Organization Name]. All rights reserved.</p>
+                <p>Copyright © 2003 Swirl. All rights reserved.</p>
                 {/* Social Media Links */}
                 <div className="flex item-center space-x-5">
                     <FaFacebookSquare className="h-8 w-8 cursor-pointer hover:translate-y-1 transition-all duration-300"/>

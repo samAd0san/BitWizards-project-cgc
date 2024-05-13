@@ -1,9 +1,9 @@
 import React from "react";
 
-const Banner = ({ banner, heading, subheading, btn1, btn2 }) => {
+const Banner = ({ banner, heading, subheading, btn1, btn2, dynamicClassName }) => {
     return (
         // Initially the div was at the top @nav so we added margin 28 at the top to lower it.
-        <div className='gradientBg rounded-xl rounded-br-[90px] md:p-9 px-4 py-9'>
+        <div className={dynamicClassName}>
             <div className='flex flex-col md:flex-row-reverse items-center justify-between gap-10'>
 
                 {/* Right part (Image) */}

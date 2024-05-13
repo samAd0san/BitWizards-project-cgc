@@ -10,8 +10,9 @@ const Features = () => {
                 {/* Left side text */}
                 <div className='lg:mt-12 cursor-pointer lg:w-1/4'>
                     <h3 className='text-3xl text-primary font-bold lg:w-1/2 mb-3'>Why are we better than others</h3>
-                    <p className='text-base text-tartiary'>Te Ofrecemos la mejor logistica para planear de forma mas eficiente el modo en que serán transportados y almacenados los bienes
-                        que necesita trasladar en el mejor plazo posible y con seguridad que nosotros brindamos</p>
+                    <p className='text-base text-tartiary'>We stand out in the provision of services due to our unwavering commitment to customer satisfaction.
+                    Our team goes above and beyond to understand and fulfill the unique needs of each client.We prioritize clear communication, reliability, and 
+                    continuous improvement, ensuring that our services not only meet but exceed expectations.</p>
                 </div>
 
                 {/* Right side Featured cards*/}
@@ -22,7 +23,7 @@ const Features = () => {
                     hover:-translate-y-4 transition-all duration-300 cursor-pointer'>
                             <div>
                                 <img src={f4} alt={'Featured card'} className='max-w-100' />
-                                <h5 className='text-2xl font-semibold text-primary px-5 mt-5 text-center'>Transporte en plataforma</h5>
+                                <h5 className='text-2xl font-semibold text-primary px-5 mt-5 text-center'>Build your Ideas</h5>
                             </div>
                         </div>
 
@@ -31,7 +32,7 @@ const Features = () => {
                     hover:-translate-y-4 transition-all duration-300 cursor-pointer md:mt-16'>
                             <div>
                                 <img src={f2} alt={'Featured card'} className='max-w-100' />
-                                <h5 className='text-2xl font-semibold text-primary px-5 mt-5 text-center'>Transporte encapsulado</h5>
+                                <h5 className='text-2xl font-semibold text-primary px-5 mt-5 text-center'>Keep up the progress</h5>
                             </div>
                         </div>
 
@@ -40,7 +41,7 @@ const Features = () => {
                     hover:-translate-y-4 transition-all duration-300 cursor-pointer'>
                             <div>
                                 <img src={f3} alt={'Featured card'} className='max-w-100' />
-                                <h5 className='text-2xl font-semibold text-primary px-5 mt-5 text-center'>Transporte de bombonas</h5>
+                                <h5 className='text-2xl font-semibold text-primary px-5 mt-5 text-center'>Success!</h5>
                             </div>
                         </div>
 

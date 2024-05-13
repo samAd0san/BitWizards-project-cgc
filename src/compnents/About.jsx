@@ -13,10 +13,9 @@ function About() {
 
                 {/* About Content */}
                 <div className='md:w-2/5'>
-                    <h2 className='md:text-5xl text-3xl font-bold text-primary mb-5 leading-normal'>Comprometidos con la efectividad de los procesos <span className='text-secondary'>nuestra mision.</span> </h2>
-                    <p className='text-tartiary text-large mb-7'>Ofrecer servicios de transporte de carga a través de unidades modernas y equipadas con tecnología de punta,
-                    que permitan satisfacer las expectativas de nuestros clientes, logrando ser la mejor opcion en la cadena logística
-                    de distribución.</p>
+                    <h2 className='md:text-5xl text-3xl font-bold text-primary mb-5 leading-normal'>We have been improving our product <span className='text-secondary'>for many years.</span> </h2>
+                    <p className='text-tartiary text-large mb-7'>Our journey has been marked by continuous improvement and a relentless pursuit of perfection. Through feedback, iteration, and a deep 
+                    understanding of our users' needs, we've evolved into a trusted industry leader.</p>
                     <button className='btnPrimary'>Get Started</button>
                 </div>
             </div>
@@ -30,9 +29,9 @@ function About() {
 
                 {/* About Content */}
                 <div className='md:w-2/5'>
-                    <h2 className='md:text-5xl text-3xl font-bold text-primary mb-5 leading-normal'>Ser un aliado estrategico <span className='text-secondary'>nuestra vision.</span> </h2>
-                    <p className='text-tartiary text-large mb-7'>Ser el aliado estratégico más confiable y seguro para sus operaciones de nuestros clientes; por brindar un 
-                    servicio de alto valor mediante nuestra flota moderna y equipo altamente calificado.</p>
+                    <h2 className='md:text-5xl text-3xl font-bold text-primary mb-5 leading-normal'>You can practise at any <span className='text-secondary'>time convinient for you.</span> </h2>
+                    <p className='text-tartiary text-large mb-7'>Our flexible practice schedule empowers you to hone your skills at your convenience, ensuring that learning fits seamlessly into your
+                    busy lifestyle. Whether it's early morning or late at night, our platform is available 24/7, allowing you to practice whenever inspiration strikes.</p>
                     <button className='btnPrimary'>Learn more</button>
                 </div>
             </div>
@@ -40,4 +39,4 @@ function About() {
      );
 }
 
-export default About;
+export default About;   
