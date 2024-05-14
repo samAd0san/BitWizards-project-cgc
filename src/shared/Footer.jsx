@@ -25,7 +25,7 @@ const Footer = () => {
 
                     {/* Email Submit Button */}
                     <input type="submit" value={'Subscribe'} className="px-4 py-2 bg-secondary rounded-md ml-2 cursor-pointer
-                    hover:bg-white hover:text-primary duration-300 transition-all" />
+                    hover:bg-white font-medium hover:text-primary duration-300 transition-all" />
                 </div>
 
                 {/* Footer Right Side */}

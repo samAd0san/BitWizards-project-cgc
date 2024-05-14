@@ -28,7 +28,7 @@ function App() {
           <Route path='*' element={<NotFound />} /> {/* Add a NotFound component */}
         </Routes>
 
-        {window.location.pathname !== '/signup' && <NewsLetter />}
+        <NewsLetter />
         <Footer />
       </BrowserRouter>
     </>

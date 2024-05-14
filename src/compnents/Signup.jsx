@@ -33,8 +33,8 @@ function Signup() {
                     </form>
 
                     <p class="mt-10 text-center text-sm text-gray-500">
-                        Not a member?
-                        <a href="#" class="font-semibold leading-6 text-secondary hover:text-indigo-500">Start a 14 day free trial</a>
+                        Dont have an account?
+                        <a href="#" class="font-semibold leading-6 text-secondary hover:text-indigo-500">Sign Up</a>
                     </p>
                 </div>
             </div>
