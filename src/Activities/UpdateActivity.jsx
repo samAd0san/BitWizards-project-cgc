@@ -21,7 +21,7 @@ function UpdateActivity() {
     useEffect(() => {
         const fetchTask = async () => {
             try {
-                const url = `http://localhost:3000/todos/${id}`;
+                const url = `https://cgc-todos-backend.onrender.com/todos/${id}`;
                 const res = await axios.get(url);
                 const taskData = res.data;
                 setTask({

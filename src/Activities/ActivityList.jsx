@@ -5,6 +5,7 @@ import ShouldRender from "../util/ShouldRender";
 import Error from "../util/Error";
 import ActivityItem from "./ActivityItem";
 import { Link } from "react-router-dom";
+import Loader from "../util/Loader";
 
 function Activities() {
 
@@ -13,9 +14,10 @@ function Activities() {
     const [page, setPage] = useState(1);
     const [metadata, setMetadata] = useState({});
     const [status, setStatus] = useState('');
+    const [loading, setLoading] = useState(true);
 
     const fetchData = async () => {
-        const url = `http://localhost:3000/todos/page/${page}/size/10?status=${status}`;
+        const url = `https://cgc-todos-backend.onrender.com/todos/page/${page}/size/10?status=${status}`;
         axios.get(url)
         try {
             const res = await axios.get(url);
@@ -23,6 +25,8 @@ function Activities() {
             setMetadata(res.data.metadata);
         } catch {
             setError(true);
+        }finally{
+            setLoading(false);
         }
     };
 
@@ -42,10 +46,13 @@ function Activities() {
 
     useEffect(() => {
         fetchData();
-    }, [tasks, metadata, status]);
+    }, [status,page]);
 
     return (
         <div className="mt-20 p-4 md:px-14">
+            <ShouldRender when={loading}>
+                <Loader />
+            </ShouldRender>
             {/* If the todos fail to load */}
             <ShouldRender when={hasError}>
                 <Error />
@@ -53,7 +60,7 @@ function Activities() {
 
             <div className="mx-16 flex flex-col">
                 {/* Heading 'TODOS' */}
-                <div className="md:text-5xl mb-3 text-4xl font-semibold text-center text-primary">
+                <div className="md:text-5xl mb-3 text-4xl font-semibold ml-16 text-primary">
                     Activities
                 </div>
 

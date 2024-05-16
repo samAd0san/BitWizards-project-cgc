@@ -1,9 +1,10 @@
 function Loader() {
-    return (
-      <div role="status" className="flex absolute top-1/2 left-1/2 bg-white border border-gray-400 w-25 rounded">
+  return (
+    <div className="flex flex-row justify-center items-center">
+      <div role="status" className="flex absolute items-center justify-center bg-white w-25 rounded">
         <svg
           aria-hidden="true"
-          className="flex w-9 h-9 text-gray-200 animate-spin dark:text-gray-400 fill-black "
+          className="flex w-9 h-9 mt-28 text-gray-200 animate-spin dark:text-gray-400 fill-black "
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -17,8 +18,9 @@ function Loader() {
             fill="currentFill"
           />
         </svg>
-        <span className="mt-1 font-serif">Loading...</span>
+        <span className=" mt-1 text-5xl text-primary font-medium mt-28">Loading...</span>
       </div>
-    );
-  }
-  export default Loader;
+    </div>
+  );
+}
+export default Loader;

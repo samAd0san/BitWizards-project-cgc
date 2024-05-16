@@ -13,7 +13,7 @@ function ActivityDetail() {
 
     useEffect(()=> {
         const id = params.id;
-        const url = `http://localhost:3000/todos/${id}`
+        const url = `https://cgc-todos-backend.onrender.com/todos/${id}`
         axios.get(url) 
             .then(res => setTask(res.data),setError(false))
             .catch(() => setError(true))

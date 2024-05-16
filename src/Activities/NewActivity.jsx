@@ -5,7 +5,6 @@ import axios from "axios";
 import Error from "../util/Error";
 
 function NewActivity() {
-
     const [task, setTask] = useState({
         status: "",
         title: "",
@@ -23,7 +22,7 @@ function NewActivity() {
 
     const onSaveBtn = async () => {
         try {
-            const url = `http://localhost:3000/todos`;
+            const url = `https://cgc-todos-backend.onrender.com/todos`;
             await axios.post(url, task);
             setSuccess(true);
             setTask({
@@ -31,7 +30,9 @@ function NewActivity() {
                 title: "",
                 description: "",
             });
-            //   navigate("/activities"); // Redirects to task page
+            setTimeout(()=>{
+                navigate(`/activities/`); // Redirects to task page
+            },1000)
         } catch(error) {
             console.error(error);
             setError(true);
