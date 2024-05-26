@@ -29,7 +29,7 @@ function About() {
 
                 {/* About Content */}
                 <div className='md:w-2/5'>
-                    <h2 className='md:text-5xl text-3xl font-bold text-primary mb-5 leading-normal'>You can practise at any <span className='text-secondary'>time convinient for you.</span> </h2>
+                    <h2 className='md:text-5xl text-3xl font-bold text-primary mb-5 leading-normal'>You can practice at any <span className='text-secondary'>time convinient for you.</span> </h2>
                     <p className='text-tartiary text-large mb-7'>Our flexible practice schedule empowers you to hone your skills at your convenience, ensuring that learning fits seamlessly into your
                     busy lifestyle. Whether it's early morning or late at night, our platform is available 24/7, allowing you to practice whenever inspiration strikes.</p>
                     <button className='btnPrimary'>Learn more</button>

@@ -47,7 +47,7 @@ function NavBar() {
                         </Link>
 
                         {/* Sign up button  */}
-                        <Link to="/signup" className='bg-secondary py-2 px-3 rounded-lg text-white hover:bg-cyan-400 transition-all duration-300'>
+                        <Link to="/signin" className='bg-secondary py-2 px-3 rounded-lg text-white hover:bg-cyan-400 transition-all duration-300'>
                             Sign in
                         </Link>
                     </div>
@@ -70,7 +70,7 @@ function NavBar() {
                 <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/about'>About</Link></li>
                 <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/activities'>Activities</Link></li>
                 <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/products'>Products</Link></li>
-                <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/signup'>Signin</Link></li>
+                <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/signin'>Signin</Link></li>
             </div>
         </>
     );

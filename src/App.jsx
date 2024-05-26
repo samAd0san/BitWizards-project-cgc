@@ -7,7 +7,6 @@ import NavBar from './compnents/NavBar';
 import NewsLetter from './compnents/NewsLetter';
 import Products from './Product/ProductList';
 import Footer from './shared/Footer';
-import Signup from './compnents/Signup'
 import NotFound from './compnents/NotFound';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProductDetail from './Product/ProductDetail';
@@ -15,6 +14,8 @@ import NewProduct from './Product/NewProduct';
 import ActivityDetail from './Activities/ActivityDetail';
 import NewActivity from './Activities/NewActivity';
 import UpdateActivity from './Activities/UpdateActivity';
+import Signin from '../user/Signin';
+import Signup from '../user/Signup';
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
           <Route path='/products/:id' element={<ProductDetail />} />
           <Route path='/products/new' element={<NewProduct />} />
 
+          <Route path='/signin' element={<Signin />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='*' element={<NotFound />} /> {/* Add a NotFound component */}
         </Routes>
