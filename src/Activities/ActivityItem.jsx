@@ -19,6 +19,10 @@ function ActivityItem({ tsk, onItemDelete }) {
 
             setSuccess(true);
             onItemDelete(tsk._id);
+
+            setTimeout(()=>{
+                setSuccess(false)
+            },1500);
         } catch (err) {
             console.error(err);
             setError(true);
