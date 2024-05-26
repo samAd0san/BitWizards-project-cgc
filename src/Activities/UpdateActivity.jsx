@@ -46,7 +46,7 @@ function UpdateActivity() {
     const onSubmitBtn = async (evt) => {
         evt.preventDefault();
         try {
-            const url = `http://localhost:3000/todos/${id}`;
+            const url = `https://cgc-todos-backend.onrender.com/todos/${id}`;
             await axios.patch(url, task); // data gets updated 
             setSuccess(true);
             setTimeout(() => {
@@ -55,6 +55,10 @@ function UpdateActivity() {
         } catch (err) {
             console.error(err)
             setError(true);
+
+            setTimeout(()=>{
+                setError(false);
+            },3000);
         }
     }
 

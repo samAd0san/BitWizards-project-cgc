@@ -1,12 +1,48 @@
 import { Link } from "react-router-dom"
 import { FaRegEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import axios from "axios";
+import { useState } from "react";
+import ShouldRender from "../util/ShouldRender";
+import Error from "../util/Error";
+import Success from "../util/Success";
 
-function ActivityItem({ tsk }) {
+function ActivityItem({ tsk, onItemDelete }) {
+
+    const [hasError, setError] = useState(false);
+    const [success, setSuccess] = useState(false);
+
+    const onDelete = async () => {
+        try {
+            const url = `https://cgc-todos-backend.onrender.com/todos/${tsk._id}`;
+            await axios.delete(url);
+
+            setSuccess(true);
+            onItemDelete(tsk._id);
+        } catch (err) {
+            console.error(err);
+            setError(true);
+
+            setTimeout(()=>{
+                setError(false)
+            },3000);
+        }
+    }
+
     return (
         <div className="p-7 border-2 border-gray-300 rounded-lg mb-3 flex items-center justify-between space-x-20">
             {/* Left Side */}
             <Link to={'/activities/' + tsk._id} >
+
+                {/* If the item does not deletes */}
+                <ShouldRender when={hasError}>
+                    <Error msg='Failed to perform the operation'/>
+                </ShouldRender>
+
+                <ShouldRender when={success}>
+                    <Success msg='Successfully Deleted'/>
+                </ShouldRender>
+
                 <div className="items-center">
                     {/* Title */}
                     <div>
@@ -28,7 +64,7 @@ function ActivityItem({ tsk }) {
                 {/* Edit Button */}
                 <Link to={{ pathname: `/activities/update/${tsk._id}`, state: { tskData: tsk } }}><button className="btnPrimary rounded-xl px-2 py-2 md:py-4 md:px-4"><FaRegEdit /></button></Link>
                 {/* Delete Button */}
-                <button className="bg-red-500 hover:bg-red-600 transition-all duration-300 text-white rounded-xl px-2 py-2 md:py-4 md:px-4"><MdDelete /></button>
+                <button onClick={onDelete} className="bg-red-500 hover:bg-red-600 transition-all duration-300 text-white rounded-xl px-2 py-2 md:py-4 md:px-4"><MdDelete /></button>
             </div>
         </div>
 

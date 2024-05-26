@@ -44,6 +44,11 @@ function Activities() {
 
     const onSearch = () => fetchData();
 
+    const refresh = (id) => {
+        console.log('Item deleted',id);
+        fetchData();
+    }
+
     useEffect(() => {
         fetchData();
     }, [status,page]);
@@ -101,7 +106,7 @@ function Activities() {
                 <div className="p-4">
                     <div className="flex flex-col">
                         {
-                            tasks.map(task => <ActivityItem tsk={task}/>)
+                            tasks.map(task => <ActivityItem tsk={task} onItemDelete={refresh}/>)
                         }
                     </div>
                 </div>
