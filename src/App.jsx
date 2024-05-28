@@ -14,39 +14,47 @@ import NewProduct from './Product/NewProduct';
 import ActivityDetail from './Activities/ActivityDetail';
 import NewActivity from './Activities/NewActivity';
 import UpdateActivity from './Activities/UpdateActivity';
-import Signin from '../user/Signin';
-import Signup from '../user/Signup';
+import Signin from './user/Signin';
+import Signup from './user/Signup';
+
+import UserContext from './context/UserContext';
+import { useState } from 'react';
 
 function App() {
+
+  const [isLoggedIn, setLoggedIn] = useState(false);
 
   return (
     <>
       <BrowserRouter>
-        <NavBar />
+        <UserContext.Provider value={{ isLoggedIn, setLoggedIn }}>
+          <NavBar />
 
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/features' element={<Features />} />
-          <Route path='/about' element={<About />} />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/features' element={<Features />} />
+            <Route path='/about' element={<About />} />
 
-          {/* Activities Routes */}
-          <Route path='/activities' element={<Activities />} />
-          <Route path='/activities/:id' element={<ActivityDetail />} />
-          <Route path='/activities/new' element={<NewActivity />} />
-          <Route path='/activities/update/:id' element={<UpdateActivity />} />
+            {/* Activities Routes */}
+            <Route path='/activities' element={<Activities />} />
+            <Route path='/activities/:id' element={<ActivityDetail />} />
+            <Route path='/activities/new' element={<NewActivity />} />
+            <Route path='/activities/update/:id' element={<UpdateActivity />} />
 
-          {/* Products Routes */}
-          <Route path='/products' element={<Products />} />
-          <Route path='/products/:id' element={<ProductDetail />} />
-          <Route path='/products/new' element={<NewProduct />} />
+            {/* Products Routes */}
+            <Route path='/products' element={<Products />} />
+            <Route path='/products/:id' element={<ProductDetail />} />
+            <Route path='/products/new' element={<NewProduct />} />
 
-          <Route path='/signin' element={<Signin />} />
-          <Route path='/signup' element={<Signup />} />
-          <Route path='*' element={<NotFound />} /> {/* Add a NotFound component */}
-        </Routes>
+            <Route path='/signin' element={<Signin />} />
+            <Route path='/signup' element={<Signup />} />
+            <Route path='*' element={<NotFound />} /> {/* Add a NotFound component */}
+          </Routes>
 
-        <NewsLetter />
-        <Footer />
+          <NewsLetter />
+          <Footer />
+        </UserContext.Provider>
+
       </BrowserRouter>
     </>
   )

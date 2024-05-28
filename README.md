@@ -19,3 +19,8 @@
 
 # Scrolling Effect
 ```npm i react-scroll```
+
+# Context API
+- Implemented signin and signout routes, In responsive aswell.
+- added and removed token on signin/signout.
+- display signin/signout button in the presence of token.

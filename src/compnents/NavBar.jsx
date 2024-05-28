@@ -1,13 +1,26 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import logo from '../assets/logo.png'
 // React Icons
 import { SlHandbag } from "react-icons/sl";
 import { FaBars, FaXmark } from "react-icons/fa6";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import ShouldRender from '../util/ShouldRender';
+import UserContext from '../context/UserContext';
 
 function NavBar() {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const navigate = useNavigate();
+
+    const { isLoggedIn, setLoggedIn } = useContext(UserContext);
+
+    const onLogout = () => {
+        localStorage.removeItem('token');
+        navigate('/signin');
+
+        // if the user logged out 
+        setLoggedIn(false);
+    }
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen)
@@ -46,10 +59,19 @@ function NavBar() {
                             <SlHandbag className='mr-2' /> <span className='hover:text-cyan-400 mt-1'>Products</span>
                         </Link>
 
-                        {/* Sign up button  */}
-                        <Link to="/signin" className='bg-secondary py-2 px-3 rounded-lg text-white hover:bg-cyan-400 transition-all duration-300'>
-                            Sign in
-                        </Link>
+                        <ShouldRender when={!isLoggedIn}>
+                            {/* Sign up button  */}
+                            <Link to="/signin" className='bg-secondary py-2 px-3 rounded-lg text-white hover:bg-cyan-400 transition-all duration-300'>
+                                Sign in
+                            </Link>
+                        </ShouldRender>
+
+                        <ShouldRender when={isLoggedIn}>
+                            {/* Sign up button  */}
+                            <Link to="/signin" onClick={onLogout} className='bg-secondary py-2 px-3 rounded-lg text-white hover:bg-cyan-400 transition-all duration-300'>
+                                Sign out
+                            </Link>
+                        </ShouldRender>
                     </div>
 
                     {/* Menu button on mobile device (Nav bar)*/}
@@ -70,7 +92,17 @@ function NavBar() {
                 <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/about'>About</Link></li>
                 <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/activities'>Activities</Link></li>
                 <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/products'>Products</Link></li>
-                <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/signin'>Signin</Link></li>
+
+                <ShouldRender when={!isLoggedIn}>
+                    <li onClick={toggleMenu} className='block hover:text-gray-300'><Link to='/signin'>Sign in</Link></li>
+                </ShouldRender>
+
+                <ShouldRender when={isLoggedIn}>
+                    <li onClick={() => { toggleMenu(); onLogout(); }} className='block hover:text-gray-300'>
+                        <Link to='/signin'>Sign out</Link>
+                    </li>
+                </ShouldRender>
+
             </div>
         </>
     );
