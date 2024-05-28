@@ -24,3 +24,7 @@
 - Implemented signin and signout routes, In responsive aswell.
 - added and removed token on signin/signout.
 - display signin/signout button in the presence of token.
+
+# User add via Signup
+- implemented user add when give payload in signup
+- restricted access to '/activities' and '/products' page if the user is not signed in

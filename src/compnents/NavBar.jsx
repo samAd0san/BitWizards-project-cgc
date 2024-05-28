@@ -26,6 +26,15 @@ function NavBar() {
         setIsMenuOpen(!isMenuOpen)
     }
 
+    // We are checking if the user is signed in or not, so that we could give access to the page to user.
+    const checkLoggedIn = (event) => {
+        if(!isLoggedIn){
+            event.preventDefault();
+            navigate('/signin')
+            alert('You need to sign in to access the page.')
+        }
+    }
+
     return (
         <>
             {/* Nav Bar Primary */}
@@ -48,14 +57,14 @@ function NavBar() {
                             <li className='block hover:text-gray-300'><Link to='/'>Home</Link></li>
                             <li className='block hover:text-gray-300'><Link to='/features'>Features</Link></li>
                             <li className='block hover:text-gray-300'><Link to='/about'>About</Link></li>
-                            <li className='block hover:text-gray-300'><Link to='/activities'>Activities</Link></li>
+                            <li onClick={checkLoggedIn} className='block hover:text-gray-300'><Link to='/activities'>Activities</Link></li>
                         </ul>
                     </div>
 
                     {/* Right Side of the Nav bar */}
                     <div className='md:flex sm:ml-12 space-x-12 items-center hidden'>
                         {/* Products (React Icon)*/}
-                        <Link className='md:flex items-center hidden' to="/products">
+                        <Link onClick={checkLoggedIn} className='md:flex items-center hidden' to="/products">
                             <SlHandbag className='mr-2' /> <span className='hover:text-cyan-400 mt-1'>Products</span>
                         </Link>
 
