@@ -18,11 +18,22 @@ import Signin from './user/Signin';
 import Signup from './user/Signup';
 
 import UserContext from './context/UserContext';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
 
-  const [isLoggedIn, setLoggedIn] = useState(false);
+  // This initializes the isLoggedIn state to true if a token is found in localStorage, otherwise to false.
+  const [isLoggedIn, setLoggedIn] = useState(()=> !!localStorage.getItem('token'));
+
+  /* This useEffect ensures that the isLoggedIn state is synced with localStorage, storing 'true' if the user is logged in and removing
+   the item if they are logged out, whenever isLoggedIn changes. */
+  useEffect(()=>{
+    if(isLoggedIn){
+      localStorage.setItem('isLoggedIn','true');
+    }else{
+      localStorage.removeItem('isLoggedIn');
+    }
+  },[isLoggedIn]);
 
   return (
     <>

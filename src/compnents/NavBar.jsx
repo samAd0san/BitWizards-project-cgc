@@ -1,6 +1,7 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import logo from '../assets/logo.png'
 // React Icons
+import { HiOutlineShoppingCart } from "react-icons/hi2";
 import { SlHandbag } from "react-icons/sl";
 import { FaBars, FaXmark } from "react-icons/fa6";
 import { Link, useNavigate } from 'react-router-dom';
@@ -16,7 +17,6 @@ function NavBar() {
 
     const onLogout = () => {
         localStorage.removeItem('token');
-        navigate('/signin');
 
         // if the user logged out 
         setLoggedIn(false);
@@ -26,14 +26,18 @@ function NavBar() {
         setIsMenuOpen(!isMenuOpen)
     }
 
-    // We are checking if the user is signed in or not, so that we could give access to the page to user.
-    const checkLoggedIn = (event) => {
-        if(!isLoggedIn){
-            event.preventDefault();
-            navigate('/signin')
-            alert('You need to sign in to access the page.')
+    /* This code snippet uses the useEffect hook, which runs after every render. It checks if the user is not logged in (isLoggedIn is false) 
+    and if the current page is either the '/activities' or '/products' page. If both conditions are true, it redirects the user to the signin
+    page using the navigate function from the react-router-dom package. By including [isLoggedIn, navigate] in the dependencies array, the 
+    effect will be triggered whenever the isLoggedIn state or the navigate function changes. This ensures that the redirection logic is 
+    applied whenever the user's authentication status or navigation function changes. */
+    useEffect(() => {
+        const currentPath = window.location.pathname;
+        if (!isLoggedIn && (currentPath === '/activities' || currentPath === '/products')) {
+            navigate('/signin');
         }
-    }
+        console.log(currentPath);
+    }, [isLoggedIn, navigate]);
 
     return (
         <>
@@ -57,14 +61,14 @@ function NavBar() {
                             <li className='block hover:text-gray-300'><Link to='/'>Home</Link></li>
                             <li className='block hover:text-gray-300'><Link to='/features'>Features</Link></li>
                             <li className='block hover:text-gray-300'><Link to='/about'>About</Link></li>
-                            <li onClick={checkLoggedIn} className='block hover:text-gray-300'><Link to='/activities'>Activities</Link></li>
+                            <li className='block hover:text-gray-300'><Link to='/activities'>Activities</Link></li>
                         </ul>
                     </div>
 
                     {/* Right Side of the Nav bar */}
                     <div className='md:flex sm:ml-12 space-x-12 items-center hidden'>
                         {/* Products (React Icon)*/}
-                        <Link onClick={checkLoggedIn} className='md:flex items-center hidden' to="/products">
+                        <Link to="/products" className='md:flex items-center hidden'>
                             <SlHandbag className='mr-2' /> <span className='hover:text-cyan-400 mt-1'>Products</span>
                         </Link>
 
@@ -77,7 +81,7 @@ function NavBar() {
 
                         <ShouldRender when={isLoggedIn}>
                             {/* Sign up button  */}
-                            <Link to="/signin" onClick={onLogout} className='bg-secondary py-2 px-3 rounded-lg text-white hover:bg-cyan-400 transition-all duration-300'>
+                            <Link onClick={onLogout} className='bg-secondary py-2 px-3 rounded-lg text-white hover:bg-cyan-400 transition-all duration-300'>
                                 Sign out
                             </Link>
                         </ShouldRender>

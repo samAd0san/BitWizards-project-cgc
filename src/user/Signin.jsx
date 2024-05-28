@@ -11,7 +11,7 @@ function Signin() {
     const [hasError, setError] = useState(false);
     const navigate = useNavigate();
 
-    const { setLoggedIn } = useContext(UserContext);
+    const { isLoggedIn,setLoggedIn } = useContext(UserContext);
 
     const onInputChange = (event) => {
         const newUser = { ...user, [event.target.name]: event.target.value };
@@ -28,6 +28,7 @@ function Signin() {
             const token = res.data.token; // Adjust according to your API response
             localStorage.setItem('token', token); // Save the token if necessary
 
+            // If the person logged it should be true
             setLoggedIn(true);
 
             navigate('/products');
@@ -61,7 +62,7 @@ function Signin() {
                                 {/* Email Label */}
                                 <label htmlFor="signin-email" className="block text-sm font-medium leading-6 text-gray-900">Email address</label>
                                 <div className="mt-2">
-                                    <input onChange={onInputChange} id="signin-email" name="email" type="email" autoComplete="off" required className="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                                    <input onChange={onInputChange} id="signin-email" name="email" type="email" autoComplete="email" required className="block pl-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
                                 </div>
                             </div>
 
