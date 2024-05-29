@@ -18,7 +18,9 @@ import Signin from './user/Signin';
 import Signup from './user/Signup';
 
 import UserContext from './context/UserContext';
+import { CartProvider } from './context/CartContext';
 import { useEffect, useState } from 'react';
+import Cart from './compnents/Cart';
 
 function App() {
 
@@ -39,9 +41,12 @@ function App() {
     <>
       <BrowserRouter>
         <UserContext.Provider value={{ isLoggedIn, setLoggedIn }}>
+          <CartProvider> {/* wraps the main application component with CartProvider to provide the cart context to the entire application */}
+
           <NavBar />
 
           <Routes>
+            {/* Basic Routes */}
             <Route path='/' element={<Home />} />
             <Route path='/features' element={<Features />} />
             <Route path='/about' element={<About />} />
@@ -57,15 +62,22 @@ function App() {
             <Route path='/products/:id' element={<ProductDetail />} />
             <Route path='/products/new' element={<NewProduct />} />
 
+            {/* Cart Routes */}
+            <Route path='/cart' element={<Cart />} />
+
+            {/* Auth Routes */}
             <Route path='/signin' element={<Signin />} />
             <Route path='/signup' element={<Signup />} />
-            <Route path='*' element={<NotFound />} /> {/* Add a NotFound component */}
+
+            {/* Add a NotFound component */}
+            <Route path='*' element={<NotFound />} /> 
           </Routes>
 
           <NewsLetter />
           <Footer />
-        </UserContext.Provider>
 
+          </CartProvider>
+        </UserContext.Provider>
       </BrowserRouter>
     </>
   )

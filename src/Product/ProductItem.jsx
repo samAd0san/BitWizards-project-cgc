@@ -1,11 +1,20 @@
-import React from "react";
-import { Link } from "react-router-dom";
+// src/components/ProductItem.jsx
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import CartContext from '../context/CartContext';
 
-function Actions() {
+function Actions({ product }) { // declaring the props, The Actions component takes a product prop.
+  const { dispatch } = useContext(CartContext); // It uses the useContext hook to access the dispatch function from CartContext.
+
+  const addToCart = () => { // addToCart is a function that dispatches an action to add the product to the cart.
+    dispatch({ type: 'ADD_TO_CART', payload: product }); // dispatch is used to send actions that describe changes to the state
+    console.log(product);
+  };
+
   return (
     <div className="mt-2 flex font-medium">
-      <a
-        href="#"
+      <button
+        onClick={addToCart}
         className="border gap-1 btnPrimary rounded-lg m-2 p-2 h-12 flex items-center whitespace-nowrap"
       >
         Add to cart
@@ -23,8 +32,7 @@ function Actions() {
             d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
           />
         </svg>
-      </a>
-
+      </button>
       <a
         href="#"
         className="border btnSecondary rounded-lg m-2 p-2 h-12 flex items-center whitespace-nowrap"
@@ -49,28 +57,27 @@ function Actions() {
   );
 }
 
-function ProductItem({ product }) {
+function ProductItem({ product }) { // 1. props coming to this func via ProductList
   return (
     <div className="flex m-2 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-      <Link to={"/products/" + product.id}>
-        <img
-          className="p-8 h-64 w-30"
-          src={product.image}
-          alt="product image"
-        />
-
+      <div>
+        <Link to={"/products/" + product.id}>
+          <img
+            className="p-8 h-64 w-30"
+            src={product.image}
+            alt="product image"
+          />
+        </Link>
         <div className="px-5 pb-5">
           <h5 className="text-xl font-semibold tracking-tight text-primary">
             {product.title}
           </h5>
-
           <div className="text-xl m-4 ml-0 font-bold text-tartiary pl-3">
             Price ${product.price}
           </div>
-
-          <Actions product={product} />
+          <Actions product={product} /> {/* 2. The props is recieved via ProductItem */}
         </div>
-      </Link>
+      </div>
     </div>
   );
 }

@@ -28,3 +28,19 @@
 # User add via Signup
 - implemented user add when give payload in signup
 - restricted access to '/activities' and '/products' page if the user is not signed in
+
+# Implementing add to cart
+- dispatch is a function provided by the useReducer hook in React. It is used to send actions to the reducer function, which then updates the state based on the action type and payload.
+
+- In the context of useReducer, actions are objects that describe the type of state change to be performed and often include additional data needed for the change. An action typically has a type property and may include a payload property for extra information.
+- For example:
+ ``` {type: 'ADD_TO_CART', payload: product }```
+
+- <b>type:</b> Identifies the kind of action (e.g., 'ADD_TO_CART'). <br>
+ <b>payload:</b> Contains the data necessary for the action (e.g., the product to add to the cart).
+
+1. context -> CartContext.jsx
+2. App.jsx
+3. ProductItem.jsx
+4. Cart.jsx
+5. NavBar.jsx
