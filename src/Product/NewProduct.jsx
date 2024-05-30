@@ -32,7 +32,9 @@ function NewProduct() {
                 price: "",
                 description: "",
             });
-            //   navigate("/products"); // Redirects to products page
+            setTimeout(() => {
+                navigate("/products"); // Redirects to products page
+            }, 2000);
         } catch {
             setError(true);
         }
@@ -55,7 +57,7 @@ function NewProduct() {
             {/* Heading */}
             <h1 className="flex text-4xl mt-3 p-1 font-bold text-primary">New Product</h1>
 
-                {/* 1. Category */}
+            {/* 1. Category */}
             <div className="mt-4 mb-4">
                 <label className="block py-1 font-medium text-2xl text-secondary">Category</label>
                 <select
@@ -75,7 +77,7 @@ function NewProduct() {
                 </ShouldRender>
             </div>
 
-                {/* 2. Title */}
+            {/* 2. Title */}
             <div className="mb-4">
                 <label className="block py-1 font-medium text-2xl text-secondary">Title</label>
                 <input
@@ -98,7 +100,7 @@ function NewProduct() {
                 </ShouldRender>
             </div>
 
-                {/* 3. Price */}
+            {/* 3. Price */}
             <div className="mb-4">
                 <label className="block py-1 font-medium text-2xl text-secondary">Price</label>
                 <input
@@ -115,7 +117,7 @@ function NewProduct() {
                 </ShouldRender>
             </div>
 
-                {/* 4. Description */}
+            {/* 4. Description */}
             <div className="mb-4">
                 <label className="block py-1 font-medium text-2xl text-secondary">Description</label>
                 <input

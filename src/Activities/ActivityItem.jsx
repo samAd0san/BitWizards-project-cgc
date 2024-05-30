@@ -20,16 +20,16 @@ function ActivityItem({ tsk, onItemDelete }) {
             setSuccess(true);
             onItemDelete(tsk._id);
 
-            setTimeout(()=>{
+            setTimeout(() => {
                 setSuccess(false)
-            },1500);
+            }, 1500);
         } catch (err) {
             console.error(err);
             setError(true);
 
-            setTimeout(()=>{
+            setTimeout(() => {
                 setError(false)
-            },3000);
+            }, 3000);
         }
     }
 
@@ -40,11 +40,11 @@ function ActivityItem({ tsk, onItemDelete }) {
 
                 {/* If the item does not deletes */}
                 <ShouldRender when={hasError}>
-                    <Error msg='Failed to perform the operation'/>
+                    <Error msg='Failed to perform the operation' />
                 </ShouldRender>
 
                 <ShouldRender when={success}>
-                    <Success msg='Successfully Deleted'/>
+                    <Success msg='Successfully Deleted' />
                 </ShouldRender>
 
                 <div className="items-center">
@@ -64,9 +64,11 @@ function ActivityItem({ tsk, onItemDelete }) {
                 </div>
             </Link>
             {/* Right Side */}
-            <div className="space-x-3 items-center mt-3">
+            <div className="mt-3 md:flex md:space-x-3 md:items-center space-y-2 md:space-y-0">
                 {/* Edit Button */}
-                <Link to={{ pathname: `/activities/update/${tsk._id}`, state: { tskData: tsk } }}><button className="btnPrimary rounded-xl px-2 py-2 md:py-4 md:px-4"><FaRegEdit /></button></Link>
+                <Link to={{ pathname: `/activities/update/${tsk._id}`, state: { tskData: tsk } }}>
+                    <button className="btnPrimary rounded-xl px-2 py-2 md:py-4 md:px-4"><FaRegEdit /></button>
+                </Link>
                 {/* Delete Button */}
                 <button onClick={onDelete} className="bg-red-500 hover:bg-red-600 transition-all duration-300 text-white rounded-xl px-2 py-2 md:py-4 md:px-4"><MdDelete /></button>
             </div>

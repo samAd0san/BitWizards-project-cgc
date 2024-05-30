@@ -7,7 +7,8 @@ function Actions({ product }) { // declaring the props, The Actions component ta
   const { dispatch } = useContext(CartContext); // It uses the useContext hook to access the dispatch function from CartContext.
 
   const addToCart = () => { // addToCart is a function that dispatches an action to add the product to the cart.
-    dispatch({ type: 'ADD_TO_CART', payload: product }); // dispatch is used to send actions that describe changes to the state
+    // dispatch is used to send actions that describe changes to the state
+    dispatch({ type: 'ADD_TO_CART', payload: { ...product, quantity: 1} }); // Added quantity property when adding a product to the cart.
     console.log(product);
   };
 
