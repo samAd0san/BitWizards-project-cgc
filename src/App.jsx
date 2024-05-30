@@ -21,6 +21,7 @@ import UserContext from './context/UserContext';
 import { CartProvider } from './context/CartContext';
 import { useEffect, useState } from 'react';
 import Cart from './compnents/Cart';
+import Checkout from './compnents/Checkout';
 
 function App() {
 
@@ -64,6 +65,7 @@ function App() {
 
             {/* Cart Routes */}
             <Route path='/cart' element={<Cart />} />
+            <Route path='/checkout' element={<Checkout />} />
 
             {/* Auth Routes */}
             <Route path='/signin' element={<Signin />} />

@@ -3,6 +3,7 @@ import React, { createContext, useEffect, useReducer } from 'react';
 
 const CartContext = createContext(); // It is to share the cart state across the component tree.
 
+// 2. declare the cartReducer function
 const cartReducer = (state, action) => { // cartReducer is a function that takes the current state and an action, then returns a new state.
   switch (action.type) { // When the action type is 'ADD_TO_CART',then only it adds the new item (from action.payload) to the cart.
     case 'ADD_TO_CART':
@@ -37,34 +38,31 @@ const cartReducer = (state, action) => { // cartReducer is a function that takes
   }
 };
 
+// 1. Declare the CartProvider
 export const CartProvider = ({ children }) => { // CartProvider is a component that uses the useReducer hook to manage the cart state.
 
   // useReducer initializes the cart state as an empty array and provides a dispatch function to send actions to the reducer.
   const [cart, dispatch] = useReducer(cartReducer, [], () => {
     const localData = localStorage.getItem('cart');
     try {
-
+      // When retrieving data from the local storage (localStorage.getItem()), the data is retrieved as a string. To use it as JavaScript objects, it needs to be converted back from its string representation to the original JavaScript objects.
       return localData ? JSON.parse(localData) : [];
     } catch (e) {
       console.error("Parsing error:", e);
-
       return [];
     }
   });
 
-
   useEffect(() => {
+    // JavaScript objects cannot be directly stored; they must be converted to strings first. Serialization converts JavaScript objects into a string representation which can then be stored in the local storage.
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 
   return (
     // CartContext.Provider makes the cart state and dispatch function available to all components within its tree.
-    <CartContext.Provider value={{ cart, dispatch }}>
-
-      {/* In the CartProvider component, the children prop represents the components that will be wrapped by the CartProvider and thus have 
-      access to the cart context. The children prop is automatically passed to the CartProvider when you wrap your application or parts of 
-      your application with the CartProvider. */}
-      {children}
+    // the children prop represents the components that will be wrapped by the CartProvider and thus have access to the cart context.
+    <CartContext.Provider value={{ cart, dispatch }}> 
+      {children} 
     </CartContext.Provider>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import CartContext from '../context/CartContext';
+import { Link } from 'react-router-dom';
 
 function Cart() {
     const { cart, dispatch } = useContext(CartContext);
@@ -47,9 +48,9 @@ function Cart() {
                 <div>
                     <h3 className="text-xl font-semibold text-primary">Total Amount: ${totalAmount}</h3>
                 </div>
-                <div>
+                <Link to='/checkout'>
                     <button onClick={handleCheckout} className="bg-primary text-white py-2 px-6 rounded hover:bg-cyan-400">Checkout</button>
-                </div>
+                </Link>
             </div>
         </div>
     );
