@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Checkout() {
     const [address1, setAddress1] = useState('');
@@ -8,10 +9,15 @@ function Checkout() {
     const [mobile, setMobile] = useState('');
     const [email, setEmail] = useState('');
     const [orderPlaced, setOrderPlaced] = useState(false);
+    const [paymentMethod, setPaymentMethod] = useState('');
+    const [cardNumber, setCardNumber] = useState('');
+    const [cvv, setCvv] = useState('');
+    const [expiry, setExpiry] = useState('');
+    const navigate = useNavigate();
 
     const handlePlaceOrder = () => {
         // Implement order placement logic, such as sending the data to a server
-        console.log('Order placed with details:', { address1, address2, city, pincode, mobile, email });
+        console.log('Order placed with details:', { address1, address2, city, pincode, mobile, email, paymentMethod, cardNumber, cvv, expiry });
         setOrderPlaced(true);
 
         // Clear the cart
@@ -19,7 +25,8 @@ function Checkout() {
 
         // Redirect to the '/products' page
         setTimeout(() => {
-            window.location.href = '/products';
+            // window.location.href = '/products';
+            navigate('/products');
         }, 2000); // Adjust the delay as needed
     };
 
@@ -92,6 +99,58 @@ function Checkout() {
                         required
                     />
                 </div>
+                <div>
+                    <h3 className="text-2xl font-semibold text-primary">Add Payment Method</h3>
+                    <select
+                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                        value={paymentMethod}
+                        onChange={(e) => setPaymentMethod(e.target.value)}
+                        required
+                    >
+                        <option value="">Select Payment Method</option>
+                        <option value="COD">Cash on Delivery</option>
+                        <option value="Card">Card Payment</option>
+                    </select>
+                </div>
+                {paymentMethod === 'Card' && (
+                    <div className="space-y-4">
+                        <div>
+                            <label htmlFor="cardNumber" className="block text-lg font-medium text-gray-700">Card Number</label>
+                            <input
+                                type="text"
+                                id="cardNumber"
+                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                                value={cardNumber}
+                                onChange={(e) => setCardNumber(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className="flex space-x-4">
+                            <div>
+                                <label htmlFor="cvv" className="block text-lg font-medium text-gray-700">CVV</label>
+                                <input
+                                    type="text"
+                                    id="cvv"
+                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                                    value={cvv}
+                                    onChange={(e) => setCvv(e.target.value)}
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="expiry" className="block text-lg font-medium text-gray-700">MM/YY</label>
+                                <input
+                                    type="text"
+                                    id="expiry"
+                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                                    value={expiry}
+                                    onChange={(e) => setExpiry(e.target.value)}
+                                    required
+                                />
+                            </div>
+                        </div>
+                    </div>
+                )}
                 <button type="submit" className="bg-primary text-white py-2 px-6 rounded hover:bg-cyan-400">Place Order</button>
             </form>
             {orderPlaced && (
