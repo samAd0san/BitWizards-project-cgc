@@ -1,26 +1,31 @@
 // src/components/ProductItem.jsx
 import React, { useContext } from 'react';
-import { Link, redirect, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CartContext from '../context/CartContext';
 
-function Actions({ product }) { // declaring the props, The Actions component takes a product prop.
+export function Actions({ product }) { // declaring the props, The Actions component takes a product prop.
   const { dispatch } = useContext(CartContext); // It uses the useContext hook to access the dispatch function from CartContext.
   const navigate = useNavigate();
 
   const addToCart = () => { // addToCart is a function that dispatches an action to add the product to the cart.
     // dispatch is used to send actions that describe changes to the state
+
+    // This will add the product to the cart when clicked on 'Add to Cart' button
     dispatch({ type: 'ADD_TO_CART', payload: { ...product, quantity: 1} }); // Added quantity property when adding a product to the cart.
     console.log(product);
   };
 
   const redirect = () => {
+        // This will add the product to the cart when clicked on 'BuyNow' button
     dispatch({ type: 'ADD_TO_CART', payload: { ...product, quantity: 1} });
     navigate('/checkout');
   }
 
   return (
     <div className="mt-2 flex font-medium">
+      {/* Add to Cart */}
       <button
+      // Add to Cart
         onClick={addToCart}
         className="border gap-1 btnPrimary rounded-lg m-2 p-2 h-12 flex items-center whitespace-nowrap"
       >
@@ -40,7 +45,9 @@ function Actions({ product }) { // declaring the props, The Actions component ta
           />
         </svg>
       </button>
+      {/* Buy now */}
       <button
+      // Add to cart on triggering 
         onClick={redirect}
         className="border btnSecondary rounded-lg m-2 p-2 h-12 flex items-center whitespace-nowrap"
       >
