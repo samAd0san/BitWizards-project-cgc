@@ -22,6 +22,7 @@ import { CartProvider } from './context/CartContext';
 import { useEffect, useState } from 'react';
 import Cart from './compnents/Cart';
 import Checkout from './compnents/Checkout';
+import OrderConfirmation from './compnents/OrderConfirmation';
 
 function App() {
 
@@ -66,6 +67,7 @@ function App() {
             {/* Cart Routes */}
             <Route path='/cart' element={<Cart />} />
             <Route path='/checkout' element={<Checkout />} />
+            <Route path='/order-confirmation' element={<OrderConfirmation />} />
 
             {/* Auth Routes */}
             <Route path='/signin' element={<Signin />} />
