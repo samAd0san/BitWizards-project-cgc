@@ -1,10 +1,12 @@
+import React from 'react';
+
 function Loader() {
   return (
-    <div className="flex flex-row justify-center items-center">
-      <div role="status" className="flex absolute items-center justify-center bg-white w-25 rounded">
+    <div className="flex justify-center items-center h-screen">
+      <div role="status" className="flex flex-col items-center justify-center bg-white p-6 rounded shadow-lg relative transform -translate-y-1/4">
         <svg
           aria-hidden="true"
-          className="flex w-9 h-9 mt-28 text-gray-200 animate-spin dark:text-gray-400 fill-black "
+          className="w-16 h-16 text-gray-200 animate-spin dark:text-gray-400 fill-primary"
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -18,9 +20,10 @@ function Loader() {
             fill="currentFill"
           />
         </svg>
-        <span className=" mt-1 text-5xl text-primary font-medium mt-28">Loading...</span>
+        <span className="mt-4 text-xl text-primary font-semibold">Loading...</span>
       </div>
     </div>
   );
 }
+
 export default Loader;

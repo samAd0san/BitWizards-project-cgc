@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import banner from "../assets/banner-img.jpg";
+import banner from "../assets/banner-new.png";
 import Banner from "../shared/Banner";
 import ShouldRender from "../util/ShouldRender";
 
@@ -57,8 +57,8 @@ const Home = () => {
                 </div>
             </ShouldRender>
 
-            <Banner banner={banner} heading='Develop your skills without diligence'
-                subheading='We emphasize on teaching great skill regarding the course, focusing not only on theoretical knowledge but also on practical application and real-world scenarios.'
+            <Banner banner={banner} heading='We help you make Shopping easy!'
+                subheading='At Swirl, our mission is to simplify and enhance your shopping experience. Whether you are exploring our extensive range of products or participating in engaging activities, we strive to provide a seamless, enjoyable, and personalized journey..'
                 btn1='Get Started' btn2='Discount' dynamicClassName={'gradientBg rounded-xl rounded-br-[90px] md:p-9 px-4 py-9'} />
         </div>
     );
