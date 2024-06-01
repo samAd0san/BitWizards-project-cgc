@@ -56,8 +56,8 @@ const Footer = () => {
                     <div className="space-y-4 mt-5">
                         <h4 className="text-xl">Contacts</h4>
                         <ul className="space-y-3">
-                            <p className="block hover:text-gray-300">+123-456-7890</p>
-                            <p className="block hover:text-gray-300">123 xyz xyz</p>
+                            <p className="block hover:text-gray-300">+971-555-4555</p>
+                            <p className="block hover:text-gray-300">920 824 022</p>
                             <p className="block hover:text-gray-300">Swirl@gmail.com</p>
                             <p className="block hover:text-gray-300">Silicon Valley, Hi-tech city</p>
                         </ul>

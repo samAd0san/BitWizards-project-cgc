@@ -31,7 +31,7 @@ const Features = () => {
                     hover:-translate-y-4 transition-all duration-300 cursor-pointer md:mt-16'>
                             <div>
                                 <img src={f2} alt={'Featured card'} className='max-w-100' />
-                                <h5 className='text-2xl font-semibold text-primary px-5 mt-5 text-center'>Shoppings</h5>
+                                <h5 className='text-2xl font-semibold text-primary px-5 mt-5 text-center'>Shopping</h5>
                             </div>
                         </div>
 
@@ -40,7 +40,7 @@ const Features = () => {
                     hover:-translate-y-4 transition-all duration-300 cursor-pointer'>
                             <div>
                                 <img src={f3} alt={'Featured card'} className='max-w-100' />
-                                <h5 className='text-2xl font-semibold text-primary px-5 mt-5 text-center'>Secure</h5>
+                                <h5 className='text-2xl font-semibold text-primary px-5 mt-5 text-center'>Secured</h5>
                             </div>
                         </div>
 

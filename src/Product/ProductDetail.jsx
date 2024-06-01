@@ -28,7 +28,7 @@ function ProductDetail() {
                 <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8">
                     <div className="w-full md:w-1/2">
                         {/* Product Title */}
-                        <h2 className="text-3xl font-semibold mb-4">{product.title}</h2>
+                        <h2 className="text-3xl font-semibold mb-4 text-primary">{product.title}</h2>
 
                         {/* Image */}
                         <div className="mb-4">
@@ -37,6 +37,8 @@ function ProductDetail() {
                     </div>
 
                     <div className="w-full md:w-1/2">
+                        {/* Price */}
+                        <p className="text-tartiary text-2xl mb-2 font-semibold">Price ${product.price}</p>
                         {/* Description */}
                         <p className="text-gray-700 text-lg leading-relaxed mb-4">{product.description}</p>
 

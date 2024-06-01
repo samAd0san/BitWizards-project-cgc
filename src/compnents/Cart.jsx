@@ -81,7 +81,7 @@ function Cart() {
 
                 {/* Checkout button redirects to checkout page */}
                 <Link to='/checkout'>
-                    <button onClick={handleCheckout} className="bg-primary text-white py-2 px-6 rounded hover:bg-cyan-400">Checkout</button>
+                    <button onClick={handleCheckout} className="bg-primary text-white py-2 px-6 rounded hover:bg-cyan-400 transition-all duration-300">Checkout</button>
                 </Link>
             </div>
         </div>

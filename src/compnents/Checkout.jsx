@@ -199,7 +199,7 @@ function Checkout() {
                         </div>
                     </div>
                 )}
-                <button type="submit" className="bg-primary text-white py-2 px-6 rounded hover:bg-cyan-400">Place Order</button>
+                <button type="submit" className="bg-primary text-white py-2 px-6 rounded hover:bg-cyan-400 transition-all duration-300">Place Order</button>
             </form>
         </div>
     );

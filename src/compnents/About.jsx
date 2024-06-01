@@ -31,7 +31,7 @@ function About() {
                 <div className='md:w-2/5'>
                     <h2 className='md:text-5xl text-3xl font-bold text-primary mb-5 leading-normal'>More <span className='text-secondary'>about us.</span> </h2>
                     <p className='text-tartiary text-large mb-7'>Swirl was founded with the vision of revolutionizing the way people shop. What started as a small idea has grown into a dynamic platform serving thousands of satisfied customers. Our journey is fueled by the passion and dedication of our team, who work tirelessly to bring you the best in retail.</p>
-                    <button className='btnPrimary'>Learn more</button>
+                    <button className='bg-primary text-white py-2 px-6 rounded-lg hover:bg-cyan-400 transition-all duration-300'>Learn more</button>
                 </div>
             </div>
         </div>
