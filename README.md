@@ -1,3 +1,6 @@
+# Access the application via this link below
+https://bitwizards-project-cgc.onrender.com
+
 # Set up Font and Color
 - Font - Google Font (Jost)
 - Color - <a>https://tinyurl.com/2f6wr2vd</a>
